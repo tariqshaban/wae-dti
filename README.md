@@ -37,17 +37,18 @@ Project Structure
     │   └── raw
     │       ├── classification            <- Raw classification datasets for training and evaluation (Parquet format).
     │       └── regression                <- Raw regression datasets for training and evaluation (Parquet format).
-    ├── models
-    │   ├── saved_models                  <- Pretrained models.
-    │   └── dti_model.py                  <- Neural network definition for the WAE-DTI architecture.
+    ├── results                           <- Store trained model, predictions, and metrics.
+    ├── saved_models
+    │   ├── classification                <- Trained models and their performance on the classification task.
+    │   └── regression                    <- Trained models and their performancee on the regression task.
     ├── src
     │   ├── dti_dataset.py                <- Data preprocessing and mounting prior to training.
+    │   ├── dti_model.py                  <- Neural network definition for the WAE-DTI architecture.
     │   ├── ensemble.py                   <- Implementation of the weighted average ensemble method.
     │   ├── evaluate.py                   <- Mathematical methods to evaluate model performance.
     │   ├── predict.py                    <- Provide predictions of a model given a dataloader.
     │   ├── test.py                       <- Generate and evaluate predictions of the model given external examples.
     │   └── train.py                      <- WAE-DTI model trainer.
-    ├── results                           <- Store trained model, predictions, and metrics.
     ├── utils
     │   ├── embedding
     │   │   ├── extractor
