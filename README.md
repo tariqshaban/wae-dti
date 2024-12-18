@@ -732,4 +732,27 @@ classification task.
    </tbody>
 </table>
 
+Citation
+------------
+
+Tariq Sha’ban, Ahmad M. Mustafa, Mostafa Z. Ali,
+[WAE-DTI: Ensemble-based architecture for drug–target interaction prediction using descriptors and embeddings](https://doi.org/10.1016/j.imu.2024.101604),
+Informatics in Medicine Unlocked,
+Volume 52,
+2025,
+101604,
+ISSN 2352-9148.
+
+    @article{SHABAN2025101604,
+        title = {WAE-DTI: Ensemble-based architecture for drug–target interaction prediction using descriptors and embeddings},
+        journal = {Informatics in Medicine Unlocked},
+        volume = {52},
+        pages = {101604},
+        year = {2025},
+        issn = {2352-9148},
+        doi = {https://doi.org/10.1016/j.imu.2024.101604},
+        url = {https://www.sciencedirect.com/science/article/pii/S2352914824001618},
+        author = {Tariq Sha’ban and Ahmad M. Mustafa and Mostafa Z. Ali},
+    }
+
 --------
