@@ -78,15 +78,15 @@ def test(drugs: np.ndarray, targets: np.ndarray, labels: np.ndarray) -> None:
             f'test_threshold={test_threshold:.3f}',
         )
 
-        metrics_df = pd.read_csv(
+        df_metrics = pd.read_csv(
             f'results/{config.experiment_start_time}/{config.dataset}/{config.drug_transformer}/metrics.csv',
         )
-        metrics_df.insert(len(metrics_df.columns), 'test_sensitivity', test_sensitivity)
-        metrics_df.insert(len(metrics_df.columns), 'test_specificity', test_specificity)
-        metrics_df.insert(len(metrics_df.columns), 'test_auc', test_auc)
-        metrics_df.insert(len(metrics_df.columns), 'test_auprc', test_auprc)
-        metrics_df.insert(len(metrics_df.columns), 'test_threshold', test_threshold)
-        metrics_df.to_csv(
+        df_metrics.insert(len(df_metrics.columns), 'test_sensitivity', test_sensitivity)
+        df_metrics.insert(len(df_metrics.columns), 'test_specificity', test_specificity)
+        df_metrics.insert(len(df_metrics.columns), 'test_auc', test_auc)
+        df_metrics.insert(len(df_metrics.columns), 'test_auprc', test_auprc)
+        df_metrics.insert(len(df_metrics.columns), 'test_threshold', test_threshold)
+        df_metrics.to_csv(
             f'results/{config.experiment_start_time}/{config.dataset}/{config.drug_transformer}/metrics.csv',
             index=False,
         )
