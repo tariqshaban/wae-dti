@@ -23,7 +23,7 @@ from scikit_mol.fingerprints import (
 from tqdm import tqdm
 
 
-def _smiles_to_embedding(smiles_list: np.ndarray, transformer: FpsTransformer) -> np.ndarray:
+def __smiles_to_embedding(smiles_list: np.ndarray, transformer: FpsTransformer) -> np.ndarray:
     """
     Convert SMILES strings to embeddings using a fingerprint transformer.
 
@@ -45,7 +45,7 @@ def _smiles_to_embedding(smiles_list: np.ndarray, transformer: FpsTransformer) -
     return embedding
 
 
-def _smiles_to_embedding_karate_club(smiles_list: np.ndarray, transformer: Estimator) -> np.ndarray:
+def __smiles_to_embedding_karate_club(smiles_list: np.ndarray, transformer: Estimator) -> np.ndarray:
     """
     Convert SMILES strings to embeddings using a Karate Club estimator.
 
@@ -116,9 +116,9 @@ def __drug_transformer(drugs: np.ndarray, transformer: FpsTransformer | Estimato
     print(f'Found ({len(drugs)}) missing drug embeddings for {transformer_name}')
 
     if isinstance(transformer, FpsTransformer):
-        embedding = _smiles_to_embedding(drugs, transformer)
+        embedding = __smiles_to_embedding(drugs, transformer)
     else:
-        embedding = _smiles_to_embedding_karate_club(drugs, transformer)
+        embedding = __smiles_to_embedding_karate_club(drugs, transformer)
 
     drug_dict = dict(zip(drugs, embedding))
 
