@@ -107,10 +107,6 @@ entry_inference.py [-h] --models-path MODELS_PATH --input-file INPUT_FILE
 > [!NOTE]
 > When running `entry_train.py` and `entry_inference.py`, missing embeddings from drugs and targets are automatically
 > extracted and saved into `data/embeddings`
->
-> ```shell
-> git clone https://github.com/facebookresearch/esm ../esm
-> ```
 
 > [!IMPORTANT]
 > During training, you may notice that `tqdm` reports monotonically increasing `total` value, this is caused by taking
