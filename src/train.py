@@ -37,6 +37,7 @@ def __train_epoch(model: DTIModel, train_loader: DataLoader, optimizer: torch.op
 
     model.train()
     loss_fn = torch.nn.BCEWithLogitsLoss() if config.task == 'classification' else torch.nn.MSELoss()
+    average_loss = 0
 
     for batch_idx, data in enumerate(train_loader):
         drug_batch = torch.Tensor(data[0]).to(config.torch_device)
@@ -46,13 +47,15 @@ def __train_epoch(model: DTIModel, train_loader: DataLoader, optimizer: torch.op
             output = model(drug_batch, target_batch)
             labels = torch.Tensor(data[2]).to(config.torch_device)
             loss = loss_fn(output.flatten(), labels.flatten())
+        average_loss += loss
         scaler.scale(loss).backward()
         scaler.step(optimizer)
         scaler.update()
 
-    wandb.log({'train_loss': loss}, step=epoch, commit=False)
+    average_loss /= len(train_loader)
+    wandb.log({'train_loss': average_loss}, step=epoch, commit=False)
 
-    return loss.item()
+    return average_loss
 
 
 def __train_loop_cls(train_loader: DataLoader, valid_loader: DataLoader) -> None:
