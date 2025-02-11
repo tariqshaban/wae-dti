@@ -26,7 +26,7 @@ def perform_eda() -> None:
     means = []
     medians = []
 
-    for dataset in list(config.datasets.keys()):
+    for dataset in list(config.regression_datasets.keys()):
         df_train = pd.read_parquet(f'data/raw/{config.task}/{dataset}/train')
         df_test = pd.read_parquet(f'data/raw/{config.task}/{dataset}/test')
 
@@ -55,16 +55,20 @@ def perform_eda() -> None:
             'valid_set_ratios (deducted from train split)': valid_set_ratios,
             'test_set_ratios': test_set_ratios,
         },
-        index=list(config.datasets.values()),
+        index=list(config.regression_datasets.values()),
     )
 
     fig = plt.figure(figsize=(15, 10))
 
     num_of_columns = 3
 
-    gs = gridspec.GridSpec(ceil(len(list(config.datasets.keys())) / num_of_columns), num_of_columns, figure=fig)
+    gs = gridspec.GridSpec(
+        ceil(len(list(config.regression_datasets.keys())) / num_of_columns),
+        num_of_columns,
+        figure=fig,
+    )
 
-    for idx, dataset in enumerate(list(config.datasets.keys())):
+    for idx, dataset in enumerate(list(config.regression_datasets.keys())):
         y = affinities[idx]
         mean = means[idx]
         median = medians[idx]
@@ -74,7 +78,7 @@ def perform_eda() -> None:
         ax1 = fig.add_subplot(gs00[0])
         ax2 = fig.add_subplot(gs00[1])
 
-        sns.boxplot(y, ax=ax1, orient='h').set_title(list(config.datasets.values())[idx])
+        sns.boxplot(y, ax=ax1, orient='h').set_title(list(config.regression_datasets.values())[idx])
 
         sns.histplot(
             y, ax=ax2, bins=50, kde=True,

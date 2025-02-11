@@ -4,16 +4,20 @@ import datetime
 import torch
 
 experiment_start_time: int = int(datetime.datetime.now().timestamp() * 1000)
-datasets: dict[str, str] = {
+regression_datasets: dict[str, str] = {
     'davis': 'Davis',
     'kiba': 'Kiba',
     'dtc': 'DTC',
     'metz': 'Metz',
     'toxcast': 'ToxCast',
     'stitch': 'Stitch',
+}
+classification_datasets: dict[str, str] = {
     'biosnap': 'BioSNAP',
+    'davis': 'Davis',
     'binding_db': 'BindingDB',
 }
+datasets: dict[str, str] = regression_datasets | classification_datasets
 drug_transformers: list[str] = [
     'AtomPairFingerprintTransformer',
     'AvalonFingerprintTransformer',
