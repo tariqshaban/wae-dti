@@ -17,7 +17,10 @@ classification_datasets: dict[str, str] = {
     'davis': 'Davis',
     'binding_db': 'BindingDB',
 }
-datasets: dict[str, str] = regression_datasets | classification_datasets
+unknown_dataset: dict[str, str] = {
+    'unknown': '',
+}
+datasets: dict[str, str] = regression_datasets | classification_datasets | unknown_dataset
 drug_transformers: list[str] = [
     'AtomPairFingerprintTransformer',
     'AvalonFingerprintTransformer',
@@ -76,6 +79,7 @@ def import_config(args: argparse.Namespace, inference: bool = False) -> None:
     if inference:
         models_path = args.models_path
         input_file = args.input_file
+        dataset = 'unknown'
     else:
         if 'experiment_start_time' in vars(args).keys():
             experiment_start_time = args.experiment_start_time
