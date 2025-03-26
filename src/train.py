@@ -29,7 +29,7 @@ def __train_epoch(model: DTIModel, train_loader: DataLoader, optimizer: torch.op
     :param DTIModel model: The DTI model to train
     :param DataLoader train_loader: DataLoader for the training data
     :param torch.optim optimizer: Optimizer for the model parameters
-    :param epoch epoch: Current epoch number (for logging purposes)
+    :param int epoch: Current epoch number (for logging purposes)
 
     :return: Average loss for the epoch
     :rtype: float
