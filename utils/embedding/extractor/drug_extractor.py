@@ -36,9 +36,6 @@ def __smiles_to_embedding(smiles_list: np.ndarray, transformer: FpsTransformer) 
 
     smiles_list = [Chem.MolFromSmiles(smiles) for smiles in smiles_list]
 
-    parameters = transformer.get_params()
-    transformer.set_params(**parameters)
-
     # noinspection PyTypeChecker
     embedding = transformer.transform(smiles_list)
     embedding = (embedding - np.min(embedding)) / (np.max(embedding) - np.min(embedding))
