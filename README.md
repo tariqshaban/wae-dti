@@ -40,7 +40,7 @@ Project Structure
     ├── results                           <- Store trained model, predictions, and metrics.
     ├── saved_models
     │   ├── classification                <- Trained models and their performance on the classification task.
-    │   └── regression                    <- Trained models and their performancee on the regression task.
+    │   └── regression                    <- Trained models and their performance on the regression task.
     ├── src
     │   ├── dti_dataset.py                <- Data preprocessing and mounting prior to training.
     │   ├── dti_model.py                  <- Neural network definition for the WAE-DTI architecture.
@@ -133,10 +133,10 @@ metric.
       <tr>
          <th>MSE</th>
          <th>CI</th>
-         <th>R2</th>
+         <th>r<sub>m</sub><sup>2</sup></th>
          <th>MSE</th>
          <th>CI</th>
-         <th>R2</th>
+         <th>r<sub>m</sub><sup>2</sup></th>
       </tr>
    </thead>
    <tbody>
@@ -243,10 +243,10 @@ metric.
       <tr>
          <th>MSE</th>
          <th>CI</th>
-         <th>R2</th>
+         <th>r<sub>m</sub><sup>2</sup></th>
          <th>MSE</th>
          <th>CI</th>
-         <th>R2</th>
+         <th>r<sub>m</sub><sup>2</sup></th>
       </tr>
    </thead>
    <tbody>
@@ -353,10 +353,10 @@ metric.
       <tr>
          <th>MSE</th>
          <th>CI</th>
-         <th>R2</th>
+         <th>r<sub>m</sub><sup>2</sup></th>
          <th>MSE</th>
          <th>CI</th>
-         <th>R2</th>
+         <th>r<sub>m</sub><sup>2</sup></th>
       </tr>
    </thead>
    <tbody>
@@ -391,10 +391,10 @@ metric.
          <td>MH fingerprint</td>
          <td><i>very high MSE</i></td>
          <td><i>very low CI</i></td>
-         <td><i>very low rm2</i></td>
+         <td><i>very low r<sub>m</sub><sup>2</sup></i></td>
          <td><i>very high MSE</i></td>
          <td><i>very low CI</i></td>
-         <td><i>very low rm2</i></td>
+         <td><i>very low r<sub>m</sub><sup>2</sup></i></td>
       </tr>
       <tr>
          <td>Morgan fingerprint</td>
